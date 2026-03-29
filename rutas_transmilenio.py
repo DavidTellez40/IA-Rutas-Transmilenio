@@ -17,28 +17,34 @@ grafo = {
     # Zona sur
     "Restrepo": [("Av Jiménez", 6), ("Venecia", 5)],
     "Venecia": [("Restrepo", 5), ("Bosa", 7)],
-    "Bosa": [("Venecia", 7)],
+    "Bosa": [("Venecia", 7), ("Terreros", 6)],
+
+    # NUEVAS ESTACIONES
+    "Terreros": [("Bosa", 6), ("San Mateo", 5)],
+    "San Mateo": [("Terreros", 5)],
 
     "Portal Américas": [("Av Jiménez", 8)]
 }
 
 # -----------------------------
-# Heurística (estimación hacia Bosa)
+# Heurística (estimación hacia el sur)
 # -----------------------------
 heuristica = {
-    "Portal Norte": 30,
-    "Calle 100": 26,
-    "Héroes": 23,
-    "Calle 72": 20,
-    "Calle 63": 18,
-    "Universidades": 15,
-    "Museo del Oro": 12,
-    "Calle 26": 14,
-    "Av Jiménez": 10,
-    "Restrepo": 6,
-    "Venecia": 3,
-    "Bosa": 0,
-    "Portal Américas": 9
+    "Portal Norte": 35,
+    "Calle 100": 30,
+    "Héroes": 27,
+    "Calle 72": 24,
+    "Calle 63": 22,
+    "Universidades": 20,
+    "Museo del Oro": 18,
+    "Calle 26": 19,
+    "Av Jiménez": 15,
+    "Restrepo": 10,
+    "Venecia": 7,
+    "Bosa": 5,
+    "Terreros": 3,
+    "San Mateo": 0,
+    "Portal Américas": 12
 }
 
 # -----------------------------
@@ -71,7 +77,7 @@ def a_estrella(inicio, objetivo):
     nodo = objetivo
     while nodo:
         ruta.append(nodo)
-        nodo = padres[nodo]
+        nodo = padres.get(nodo)
 
     ruta.reverse()
     return ruta, costos.get(objetivo, None)
@@ -87,6 +93,11 @@ for estacion in grafo:
 
 inicio = input("\nIngrese estación de inicio: ")
 destino = input("Ingrese estación destino: ")
+
+# ✅ VALIDACIÓN NUEVA
+if inicio == destino:
+    print("\n⚠ Origen y destino son iguales")
+    exit()
 
 if inicio not in grafo or destino not in grafo:
     print("\n❌ Estación no válida")
