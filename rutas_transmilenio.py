@@ -94,7 +94,7 @@ for estacion in grafo:
 inicio = input("\nIngrese estación de inicio: ")
 destino = input("Ingrese estación destino: ")
 
-# ✅ VALIDACIÓN NUEVA
+# VALIDACIÓN NUEVA
 if inicio == destino:
     print("\n⚠ Origen y destino son iguales")
     exit()
