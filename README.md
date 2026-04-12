@@ -28,7 +28,7 @@ Se implementa un sistema basado en grafos que permite encontrar la mejor ruta en
 
 ---
 
-### 🔹 2. Aprendizaje Supervisado (A_S)
+### 🔹 2. Métodos de Aprendizaje Supervisado (M_A_S)
 
 Se desarrolló un modelo que permite predecir el tiempo estimado de viaje con base en:
 
@@ -51,7 +51,7 @@ Se desarrolló un modelo que permite predecir el tiempo estimado de viaje con ba
 
 ---
 
-### 🔹 3. Aprendizaje No Supervisado (A_N_S)
+### 🔹 3. Métodos de Aprendizaje No Supervisado (M_A_N_S)
 
 Se implementó un modelo de clustering utilizando K-Means para agrupar estaciones según sus características.
 
